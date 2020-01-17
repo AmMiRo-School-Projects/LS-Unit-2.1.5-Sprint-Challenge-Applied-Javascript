@@ -17,3 +17,61 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+function carouselMaker() {
+  const carousel = document.createElement("div"),
+    ltBtn = document.createElement("div"),
+    img1 = document.createElement("img"),
+    img2 = document.createElement("img"),
+    img3 = document.createElement("img"),
+    img4 = document.createElement("img"),
+    rtBtn = document.createElement("img");
+
+  carousel.append(ltBtn);
+  carousel.append(img1);
+  carousel.append(img2);
+  carousel.append(img3);
+  carousel.append(img4);
+  carousel.append(rtBtn);
+
+  carousel.classList.add("carousel");
+  ltBtn.classList.add("left-button");
+  rtBtn.classList.add("right-button");
+
+  img1.src = "./assets/carousel/mountains.jpeg";
+  img2.src = "./assets/carousel/computer.jpeg";
+  img3.src = "./assets/carousel/trees.jpeg";
+  img4.src = "./assets/carousel/turntable.jpeg";
+
+  const imgArray = [img1, img2, img3, img4];
+
+  let index = 0;
+
+  ltBtn.addEventListener("click", () => {
+    console.log(index);
+    if (index > 0) {
+      index--;
+    } else if ((index = 0)) {
+      index = 3;
+    }
+  });
+
+  rtBtn.addEventListener("click", () => {
+    console.log(index);
+    if (index < 3) {
+      index++;
+    } else if ((index = 3)) {
+      index = 0;
+    }
+  });
+
+  imgArray[index].classList.toggle(".selected-img");
+
+  return carousel;
+}
+
+const carouselContainer = document.querySelector(".carousel-container");
+
+carouselContainer.append(carouselMaker());
+
+console.log(carouselContainer);
