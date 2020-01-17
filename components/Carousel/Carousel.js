@@ -46,26 +46,36 @@ function carouselMaker() {
   const imgArray = [img1, img2, img3, img4];
 
   let index = 0;
+  imgArray[index].style.display = "block";
+  console.log(index);
 
   ltBtn.addEventListener("click", () => {
     console.log(index);
     if (index > 0) {
+      imgArray[index].style.display = "none";
       index--;
-    } else if ((index = 0)) {
+      imgArray[index].style.display = "block";
+    } else {
+      imgArray[index].style.display = "none";
       index = 3;
+      imgArray[index].style.display = "block";
     }
   });
 
   rtBtn.addEventListener("click", () => {
     console.log(index);
     if (index < 3) {
+      imgArray[index].style.display = "none";
       index++;
+      imgArray[index].style.display = "block";
     } else if ((index = 3)) {
+      imgArray[index].style.display = "none";
       index = 0;
+      imgArray[index].style.display = "block";
     }
   });
 
-  imgArray[index].classList.toggle(".selected-img");
+  // SimgArray[index].style.display = "block";
 
   return carousel;
 }
